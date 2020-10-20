@@ -5,11 +5,12 @@ import bs4 as bs
 import urllib.request
 
 print('''
-▄▄▌ ▐ ▄▌ ▄▄▄· ▌ ▐·▄▄▄ .▄▄▄  .▄▄ · ▪         ▐ ▄ 
-██· █▌▐█▐█ ▄█▪█·█▌▀▄.▀·▀▄ █·▐█ ▀. ██ ▪     •█▌▐█
-██▪▐█▐▐▌ ██▀·▐█▐█•▐▀▀▪▄▐▀▀▄ ▄▀▀▀█▄▐█· ▄█▀▄ ▐█▐▐▌
-▐█▌██▐█▌▐█▪·• ███ ▐█▄▄▌▐█•█▌▐█▄▪▐█▐█▌▐█▌.▐▌██▐█▌
- ▀▀▀▀ ▀▪.▀   . ▀   ▀▀▀ .▀  ▀ ▀▀▀▀ ▀▀▀ ▀█▄▀▪▀▀ █▪
+ __          _______         _____  _____          _   _ 
+ \ \        / /  __ \       / ____|/ ____|   /\   | \ | |
+  \ \  /\  / /| |__) |_   _| (___ | |       /  \  |  \| |
+   \ \/  \/ / |  ___/\ \ / /\___ \| |      / /\ \ | . ` |
+    \  /\  /  | |     \ V / ____) | |____ / ____ \| |\  |
+     \/  \/   |_|      \_/ |_____/ \_____/_/    \_\_| \_|                                                                                                                
 v1.0.0
 ''')
 website = input("Enter website: ")
@@ -22,5 +23,5 @@ WP_version = WP_pars[10:15] + "."
 WP_now = "5.5.1." # Manually added from https://api.wordpress.org/core/version-check/1.7/
 
 print(" ")
-print("Website " + website + " is running on CMS " + WP_name + " of version " + WP_version)
+print("Website " + website + " is running on CMS " + WP_name + " of version " +WP_version)
 print("Latest version is " + WP_now)
