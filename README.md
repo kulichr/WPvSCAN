@@ -1,5 +1,5 @@
 # WPvSCAN
-WordPress version scanner written in Python
+WPvSCAN is basic WordPress version scanner as my first Python project.
 
 ## Requirements
 
