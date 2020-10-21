@@ -3,6 +3,7 @@
 # Version: v1.0.0
 import bs4 as bs
 import urllib.request
+import time
 
 print('''
  __          _______         _____  _____          _   _ 
@@ -21,7 +22,10 @@ WP_pars = WP_check['content']
 WP_name = WP_pars[0:9]
 WP_version = WP_pars[10:15] + "." 
 WP_now = "5.5.1." # Manually added from https://api.wordpress.org/core/version-check/1.7/
+t = time.localtime()
+current_time = time.strftime("%H:%M:%S", t)
 
 print(" ")
 print("Website " + website + " is running on CMS " + WP_name + " of version " +WP_version)
 print("Latest version is " + WP_now)
+print("Scan finished " + current_time)
