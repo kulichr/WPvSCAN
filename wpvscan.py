@@ -1,6 +1,6 @@
 #!/usr/bin/env python
 # Author: Roman Kulich @ 2020
-# Version: v1.0.0
+# Version: v1.0.2
 import bs4 as bs
 import urllib.request
 import time
