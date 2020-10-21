@@ -1,4 +1,6 @@
 #!/usr/bin/env python
+# Name: WPvSCAN
+# https://github.com/cyb3rd3s/WPvSCAN
 # Author: Roman Kulich @ 2020
 # Version: v1.0.2
 import bs4 as bs
