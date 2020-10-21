@@ -4,6 +4,7 @@
 import bs4 as bs
 import urllib.request
 import time
+import os
 
 print('''
  __          _______         _____  _____          _   _ 
@@ -26,6 +27,13 @@ t = time.localtime()
 current_time = time.strftime("%H:%M:%S", t)
 
 print(" ")
-print("Website " + website + " is running on CMS " + WP_name + " of version " +WP_version)
+print("Target website " + website + " is running on CMS " + WP_name + " of version " +WP_version)
 print("Latest version is " + WP_now)
 print("Scan finished " + current_time)
+
+searchsploit = input("Do you want to use searchsploit to check exploits for this version? (y/n) ")
+if searchsploit == "y":
+    print(" ")
+    print(os.system("searchsploit " + WP_pars))
+else:
+    print("Finished")
