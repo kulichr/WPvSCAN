@@ -8,4 +8,4 @@ Důležité součásti scriptu, nainstalujte z následujícího souboru requirem
 pip install -r requirements.txt
 ```
 ### Python 3.7
-Celý script je napsán v Python 3.7, který doporučuji použít pro správnou funkčnost, mohlo by se stát, že v některých starších verzích se může objevit chyba.
+Celý script je napsán v Python 3.7, který doporučuji použít pro správnou funkčnost, mohlo by se stát, že v některých starších verzích se může objevit chyba. Python je volně [ke stažení zde](https://www.python.org/downloads/) pro všechny platformy zcela zdarma.
