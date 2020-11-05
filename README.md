@@ -1,8 +1,8 @@
 # WPvSCAN
-WPvSCAN is basic WordPress version scanner as my first Python project.
+WPvSCAN scanuje verzi CMS WordPress na cílové webové stránce a porovnává jí s nejaktuálnější vydanou verzí. Následně lze vypsat exploity, které vypisuje za pomocí nástroje SearchSploit.
 
 ## Requirements
-Install all dependencies from requirements.txt
+Důležité součásti scriptu, nainstalujte z následujícího souboru requirements.txt.
 ```
 pip install -r requirements.txt
 ```
