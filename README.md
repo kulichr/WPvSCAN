@@ -1,17 +1,17 @@
 # WPvSCAN
-WPvSCAN scanuje verzi CMS WordPress na cílové webové stránce a porovnává jí s nejaktuálnější vydanou verzí. Po otestování verze nabízí i možnost vypsání všech známých exploitů za pomocí nástroje [SearchSploit](https://github.com/offensive-security/exploitdb) od společnosti Offensive Security.
+WPvSCAN scans the version of CMS WordPress on the target website and compares it with the most recent version. After that, it also offers the option of listing all know exploits using [SearchSploit](https://github.com/offensive-security/exploitdb) tool by Offensive Security.
 
 ## Requirements
 ### Pip dependencies
-Důležité součásti scriptu, nainstalujte z následujícího souboru requirements.txt.
+Necessary python dependencies have to be install with following command.
 ```
 pip install -r requirements.txt
 ```
 ### Python 3.7
-Celý script je napsán v Python 3.7, který doporučuji použít pro správnou funkčnost, mohlo by se stát, že v některých starších verzích se může objevit chyba. Python je volně [ke stažení zde](https://www.python.org/downloads/) pro všechny platformy zcela zdarma.
+Whole script is written in Python 3.7., which is recommended for best functionality. Something might not work well in older versions. Python is free to download from [official website](https://www.python.org/downloads/) for all platforms.
 
 ### SearchSploit
-Exploit nabízí možnost vypsání exploitů na danou nalezenou verzi WordPressu, pokud však není SearchSploit již na vašem stroji nainstalován, script vyhodí chybu. SearchSploit lze nainstalovat přímo z oficiálního [GitHub repozitáře.](https://github.com/offensive-security/exploitdb)
+Script offers exploits for found version of WordPress. SearchSploit could be install from official [GitHub repository.](https://github.com/offensive-security/exploitdb)
 
 ## Help & issues
-Pokud máte nějaké otázky, problémy nebo naopak nápady, script si můžete upravovat podle svého, případné problémy můžete hlásit zde do [Issues](https://github.com/cyb3rd3s/WPvSCAN/issues).
+If you have any question, ideas or issues, you can report them through [Issues](https://github.com/cyb3rd3s/WPvSCAN/issues).
