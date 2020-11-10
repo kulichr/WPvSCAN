@@ -2,7 +2,7 @@
 # Name: WPvSCAN
 # https://github.com/cyb3rd3s/WPvSCAN
 # Author: Roman Kulich @ 2020
-# Version: v1.0.3
+# Version: v1.0.4
 import bs4 as bs
 import urllib.request
 import time
