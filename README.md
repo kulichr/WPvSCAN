@@ -14,4 +14,4 @@ Celý script je napsán v Python 3.7, který doporučuji použít pro správnou 
 Exploit nabízí možnost vypsání exploitů na danou nalezenou verzi WordPressu, pokud však není SearchSploit již na vašem stroji nainstalován, script vyhodí chybu. SearchSploit lze nainstalovat přímo z oficiálního [GitHub repozitáře.](https://github.com/offensive-security/exploitdb)
 
 ## Help & issues
-Pokud máte nějaké otázky, problémy nebo naopak nápady, script si můžete upravovat podle svého, případně mě můžete kontaktovat na Twitteru nebo zde do [Issues](https://github.com/cyb3rd3s/WPvSCAN/issues).
+Pokud máte nějaké otázky, problémy nebo naopak nápady, script si můžete upravovat podle svého, případné problémy můžete hlásit zde do [Issues](https://github.com/cyb3rd3s/WPvSCAN/issues).
