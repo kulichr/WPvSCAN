@@ -1,5 +1,9 @@
 # WPvSCAN
 WPvSCAN scans the version of CMS WordPress on the target website and compares it with the most recent version. After that, it also offers the option of listing all know exploits using [SearchSploit](https://github.com/offensive-security/exploitdb) tool by Offensive Security.
+## Usage
+```
+wpvscan.py domain.com
+```
 
 ## Requirements
 ### Pip dependencies
