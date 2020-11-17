@@ -5,7 +5,6 @@
 # Version: v1.0.4
 import bs4 as bs
 import urllib.request
-import time
 import os
 import argparse
 import requests
@@ -21,7 +20,7 @@ print('''
    \ \/  \/ / |  ___/\ \ / /\___ \| |      / /\ \ | . ` |
     \  /\  /  | |     \ V / ____) | |____ / ____ \| |\  |
      \/  \/   |_|      \_/ |_____/ \_____/_/    \_\_| \_|                                                                                                                
-v1.0.0
+v1.0.4
 ''')
 print(TGREEN + "USAGE: wpvscan.py target.com", TWHITE)
 print("")
@@ -29,7 +28,7 @@ print("")
 response = requests.get('https://api.wordpress.org/core/version-check/1.7/')
 json = response.json()
 
-parser = argparse.ArgumentParser(description="Human Para")
+parser = argparse.ArgumentParser(description="")
 parser.add_argument(dest='domain', help="wpvscan.py target.com")
 args = parser.parse_args()
 
@@ -57,4 +56,4 @@ if searchsploit == "y":
     print(" ")
     print(os.system("searchsploit " + WP_pars))
 else:
-    print("DONE")
+    print("Finished")
