@@ -29,7 +29,7 @@ print("")
 response = requests.get('https://api.wordpress.org/core/version-check/1.7/')
 json = response.json()
 
-parser = argparse.ArgumentParser(description="Human Para")
+parser = argparse.ArgumentParser(description="")
 parser.add_argument(dest='domain', help="wpvscan.py target.com")
 args = parser.parse_args()
 
