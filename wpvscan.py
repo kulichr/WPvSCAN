@@ -2,7 +2,7 @@
 # Name: WPvSCAN
 # https://github.com/cyb3rd3s/WPvSCAN
 # Author: Roman Kulich @ 2020
-# Version: v1.0.4
+# Version: v1.0.5
 import bs4 as bs
 import urllib.request
 import os
@@ -20,7 +20,7 @@ print('''
    \ \/  \/ / |  ___/\ \ / /\___ \| |      / /\ \ | . ` |
     \  /\  /  | |     \ V / ____) | |____ / ____ \| |\  |
      \/  \/   |_|      \_/ |_____/ \_____/_/    \_\_| \_|                                                                                                                
-v1.0.4
+v1.0.5
 ''')
 print(TGREEN + "USAGE: wpvscan.py target.com", TWHITE)
 print("")
@@ -40,8 +40,6 @@ WP_pars = WP_check['content']
 WP_name = WP_pars[0:9]
 WP_version = WP_pars[10:15] + "." 
 WP_now = str(json['offers'][0]['version'])
-t = time.localtime()
-current_time = time.strftime("%H:%M:%S", t)
 
 print(" ")
 if WP_version == WP_now:
@@ -49,11 +47,10 @@ if WP_version == WP_now:
 else:
     print("Target website " + website + " is running on CMS " + WP_name + " of version " + TRED + WP_version,TWHITE)
 print("Latest version is " + TGREEN + WP_now,TWHITE)
-print("Scan finished " + current_time)
 
 searchsploit = input("Do you want to use searchsploit to check exploits for this version? (y/n) ")
 if searchsploit == "y":
     print(" ")
     print(os.system("searchsploit " + WP_pars))
 else:
-    print("Finished")
+    print(TGREEN + "Finished",TWHITE)
