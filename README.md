@@ -8,7 +8,7 @@ wpvscan.py domain.com
 
 ## Requirements
 ### Pip dependencies
-Necessary python dependencies have to be install with following command.
+Necessary python dependencies should be installed with following command.
 ```
 pip install -r requirements.txt
 ```
