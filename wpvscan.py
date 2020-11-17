@@ -38,7 +38,7 @@ soup = bs.BeautifulSoup(source,'lxml')
 WP_check = soup.find(attrs={'name' : 'generator'})
 WP_pars = WP_check['content']
 WP_name = WP_pars[0:9]
-WP_version = WP_pars[10:15] + "." 
+WP_version = WP_pars[10:15]
 WP_now = str(json['offers'][0]['version'])
 
 print(" ")
