@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 # Name: WPvSCAN
 # https://github.com/cyb3rd3s/WPvSCAN
 # Author: Roman Kulich @ 2020
