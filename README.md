@@ -1,6 +1,7 @@
 ![GitHub release (latest by date)](https://img.shields.io/github/v/release/cyb3rd3s/WPvSCAN?style=for-the-badge) ![GitHub top language](https://img.shields.io/github/languages/top/cyb3rd3s/WPvSCAN?style=for-the-badge) ![GitHub last commit](https://img.shields.io/github/last-commit/cyb3rd3s/WPvSCAN?style=for-the-badge)
 # WPvSCAN
 WPvSCAN scans the version of CMS WordPress on the target website and compares it with the most recent version. After that, it also offers the option of listing all know exploits using [SearchSploit](https://github.com/offensive-security/exploitdb) tool by Offensive Security.
+![Example of result](https://github.com/cyb3rd3s/cyb3rd3s/blob/main/wpvscan.png)
 ## Usage
 ```
 wpvscan.py domain.com
