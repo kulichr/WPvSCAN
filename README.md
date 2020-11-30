@@ -4,7 +4,7 @@ WPvSCAN scans the version of CMS WordPress on the target website and compares it
 ![Example of result](https://github.com/cyb3rd3s/cyb3rd3s/blob/main/wpvscan.png)
 ## Usage
 ```
-python3 wpvscan.py domain.com
+python3 wpvscan.py -t target.com
 ```
 
 ## Requirements
