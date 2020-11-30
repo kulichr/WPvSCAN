@@ -23,7 +23,6 @@ print('''
      \/  \/   |_|      \_/ |_____/ \_____/_/    \_\_| \_|                                                                                                                
 v1.0.6
 ''')
-print("")
 
 response = requests.get('https://api.wordpress.org/core/version-check/1.7/')
 json = response.json()
@@ -34,18 +33,25 @@ args = parser.parse_args()
 
 website = args.domain
 
+WPcheck = requests.get('https://'+ website + '/wp-admin') #Temporary solution how to determine, if website is running on WordPress :)
+
 if website is None:
     print(TRED + "Missing target! ==>",TWHITE + TGREEN + "Usage: python3 wpvscan.py -t target.com")
     print("")
     sys.exit()
 else:
-    source = urllib.request.urlopen('https://'+ website).read()
-    soup = bs.BeautifulSoup(source,'lxml')
-    WP_check = soup.find(attrs={'name' : 'generator'})
-    WP_pars = WP_check['content']
-    WP_name = WP_pars[0:9]
-    WP_version = WP_pars[10:15]
-    WP_now = str(json['offers'][0]['version'])
+    if WPcheck.status_code == 200:
+        source = urllib.request.urlopen('https://'+ website).read()
+        soup = bs.BeautifulSoup(source,'lxml')
+        WP_check = soup.find(attrs={'name' : 'generator'})
+        WP_pars = WP_check['content']
+        WP_name = WP_pars[0:9]
+        WP_version = WP_pars[10:15]
+        WP_now = str(json['offers'][0]['version'])
+    else:
+        print(TRED,"Website is not running on WordPress!",TWHITE)
+        print("")
+        sys.exit()
 
 print(" ")
 if WP_version == WP_now:
