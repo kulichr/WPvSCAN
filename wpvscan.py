@@ -2,12 +2,13 @@
 # Name: WPvSCAN
 # https://github.com/cyb3rd3s/WPvSCAN
 # Author: Roman Kulich @ 2020
-# Version: v1.0.5
+# Version: v1.0.6
 import bs4 as bs
 import urllib.request
 import os
 import argparse
 import requests
+import sys
 
 TGREEN =  '\033[32m' # Green Text
 TWHITE = '\033[37m' # White text
@@ -20,26 +21,31 @@ print('''
    \ \/  \/ / |  ___/\ \ / /\___ \| |      / /\ \ | . ` |
     \  /\  /  | |     \ V / ____) | |____ / ____ \| |\  |
      \/  \/   |_|      \_/ |_____/ \_____/_/    \_\_| \_|                                                                                                                
-v1.0.5
+v1.0.6
 ''')
-print(TGREEN + "USAGE: wpvscan.py target.com", TWHITE)
 print("")
 
 response = requests.get('https://api.wordpress.org/core/version-check/1.7/')
 json = response.json()
 
-parser = argparse.ArgumentParser(description="")
-parser.add_argument(dest='domain', help="wpvscan.py target.com")
+parser = argparse.ArgumentParser()
+parser.add_argument("-t", help="target url", dest='domain')
 args = parser.parse_args()
 
-website = (args.domain)
-source = urllib.request.urlopen('https://'+ website).read()
-soup = bs.BeautifulSoup(source,'lxml')
-WP_check = soup.find(attrs={'name' : 'generator'})
-WP_pars = WP_check['content']
-WP_name = WP_pars[0:9]
-WP_version = WP_pars[10:15]
-WP_now = str(json['offers'][0]['version'])
+website = args.domain
+
+if website is None:
+    print(TRED + "Missing target! ==>",TWHITE + TGREEN + "Usage: python3 wpvscan.py -t target.com")
+    print("")
+    sys.exit()
+else:
+    source = urllib.request.urlopen('https://'+ website).read()
+    soup = bs.BeautifulSoup(source,'lxml')
+    WP_check = soup.find(attrs={'name' : 'generator'})
+    WP_pars = WP_check['content']
+    WP_name = WP_pars[0:9]
+    WP_version = WP_pars[10:15]
+    WP_now = str(json['offers'][0]['version'])
 
 print(" ")
 if WP_version == WP_now:
