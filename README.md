@@ -13,7 +13,7 @@ Necessary python dependencies should be installed with following command.
 ```
 pip install -r requirements.txt
 ```
-### Python 3.7
+### Python 3
 Whole script is written in Python 3.7., which is recommended for best functionality. Something might not work well in older versions. Python is free to download from [official website](https://www.python.org/downloads/) for all platforms.
 
 ### SearchSploit
