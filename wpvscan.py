@@ -28,7 +28,7 @@ response = requests.get('https://api.wordpress.org/core/version-check/1.7/')
 json = response.json()
 
 parser = argparse.ArgumentParser()
-parser.add_argument('-t', help='target url', dest='domain')
+parser.add_argument("-t", help="target url", dest='domain')
 args = parser.parse_args()
 
 website = args.domain
@@ -58,19 +58,37 @@ if WPcheck.status_code == 200:
     WP_now = str(json['offers'][0]['version'])
 else:
     print(TRED,'Website is not running on WordPress!',TWHITE)
+
+if website is None:
+    print(TRED + "Missing target! ==>",TWHITE + TGREEN + "Usage: python3 wpvscan.py -t target.com")
+    print("")
+    sys.exit()
+else:
+    WPcheck = requests.get('https://'+ website + '/wp-admin') #Temporary solution how to determine, if website is running on WordPress :)
+
+if WPcheck.status_code == 200:
+    source = urllib.request.urlopen('https://'+ website).read()
+    soup = bs.BeautifulSoup(source,'lxml')
+    WP_check = soup.find(attrs={'name' : 'generator'})
+    WP_pars = WP_check['content']
+    WP_name = WP_pars[0:9]
+    WP_version = WP_pars[10:15]
+    WP_now = str(json['offers'][0]['version'])
+else:
+    print(TRED,"Website is not running on WordPress!",TWHITE)
     print("")
     sys.exit()
 
-print()
+print(" ")
 if WP_version == WP_now:
-    print('Target website '+ website + ' is running on CMS ' + WP_name + ' of version ' + TGREEN + WP_version,TWHITE)
+    print("Target website " + website + " is running on CMS " + WP_name + " of version " + TGREEN + WP_version,TWHITE)
 else:
-    print('Target website '+ website + ' is running on CMS ' + WP_name + ' of version ' + TGREEN + WP_version,TWHITE)
-print('Latest version is ' + TGREEN + WP_now,TWHITE)
+    print("Target website " + website + " is running on CMS " + WP_name + " of version " + TRED + WP_version,TWHITE)
+print("Latest version is " + TGREEN + WP_now,TWHITE)
 
-searchsploit = input('Do you want to use searchsploit to check exploits for this version? (y/n) ')
-if searchsploit == 'y':
-    print()
-    print(os.system('searchsploit ' + WP_pars))
+searchsploit = input("Do you want to use searchsploit to check exploits for this version? (y/n) ")
+if searchsploit == "y":
+    print(" ")
+    print(os.system("searchsploit " + WP_pars))
 else:
-    print(TGREEN + 'Finished',TWHITE)
+    print(TGREEN + "Finished",TWHITE)
