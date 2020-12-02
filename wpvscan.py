@@ -32,33 +32,34 @@ parser.add_argument('-t', help='target url', dest='domain')
 args = parser.parse_args()
 
 website = args.domain
-if 'https://' in website: #Remove http or https to prevent errors
-    website = website.strip('https://')
-elif 'http://' in website:
-    website = website.strip('http://')
+if website is None:
+    print(TRED + 'Missing target! ==>',TWHITE + TGREEN + 'Usage: python3 wpvscan.py -t target.com')
+    print()
+    sys.exit()
+
+if website:
+    if 'https://' in website: #Remove http or https to prevent errors
+        website = website.strip('https://')
+    elif 'http://' in website:
+        website = website.strip('http://')
 
 url = 'http://'+ website #Use http by default. If website uses https, request will change to https automatically
 admin_url = url + '/wp-admin'
 
 WPcheck = requests.get(admin_url) #Temporary solution how to determine, if website is running on WordPress :)
 
-if website is None:
-    print(TRED + 'Missing target! ==>',TWHITE + TGREEN + 'Usage: python3 wpvscan.py -t target.com')
-    print()
-    sys.exit()
+if WPcheck.status_code == 200:
+    source = urllib.request.urlopen(url).read()
+    soup = bs.BeautifulSoup(source,'lxml')
+    WP_check = soup.find(attrs={'name' : 'generator'})
+    WP_pars = WP_check['content']
+    WP_name = WP_pars[0:9]
+    WP_version = WP_pars[10:15]
+    WP_now = str(json['offers'][0]['version'])
 else:
-    if WPcheck.status_code == 200:
-        source = urllib.request.urlopen(url).read()
-        soup = bs.BeautifulSoup(source,'lxml')
-        WP_check = soup.find(attrs={'name' : 'generator'})
-        WP_pars = WP_check['content']
-        WP_name = WP_pars[0:9]
-        WP_version = WP_pars[10:15]
-        WP_now = str(json['offers'][0]['version'])
-    else:
-        print(TRED,'Website is not running on WordPress!',TWHITE)
-        print("")
-        sys.exit()
+    print(TRED,'Website is not running on WordPress!',TWHITE)
+    print("")
+    sys.exit()
 
 print()
 if WP_version == WP_now:
