@@ -13,6 +13,7 @@ import sys
 TGREEN =  '\033[32m' # Green Text
 TWHITE = '\033[37m' # White text
 TRED = '\033[31m' # White text
+TYELL = '\033[33m' # Yellow text
 
 print('''
  __          _______         _____  _____          _   _ 
@@ -33,7 +34,7 @@ args = parser.parse_args()
 
 website = args.domain
 if website is None:
-    print(TRED + 'Missing target! ==>',TWHITE + TGREEN + 'Usage: python3 wpvscan.py -t target.com')
+    print(TRED + 'Missing target! ==>',TWHITE + TGREEN + 'Usage: python3 wpvscan.py -t target.com',TWHITE)
     print()
     sys.exit()
 
@@ -60,7 +61,7 @@ else:
     print(TRED,'Website is not running on WordPress!',TWHITE)
 
 if website is None:
-    print(TRED + "Missing target! ==>",TWHITE + TGREEN + "Usage: python3 wpvscan.py -t target.com")
+    print(TRED + "Missing target! ==>",TWHITE + TGREEN + "Usage: python3 wpvscan.py -t target.com",TWHITE)
     print("")
     sys.exit()
 else:
@@ -81,10 +82,10 @@ else:
 
 print(" ")
 if WP_version == WP_now:
-    print("Target website " + website + " is running on CMS " + WP_name + " of version " + TGREEN + WP_version,TWHITE)
+    print(TGREEN + "[+]",TWHITE + "Target website " + website + " is running on CMS " + WP_name + " of version " + TGREEN + WP_version,TWHITE)
 else:
-    print("Target website " + website + " is running on CMS " + WP_name + " of version " + TRED + WP_version,TWHITE)
-print("Latest version is " + TGREEN + WP_now,TWHITE)
+    print(TRED + "[!]",TWHITE + "Target website " + website + " is running on CMS " + WP_name + " of version " + TRED + WP_version,TWHITE)
+print(TGREEN + "[+]",TWHITE + "Latest version is " + TGREEN + WP_now,TWHITE)
 
 searchsploit = input("Do you want to use searchsploit to check exploits for this version? (y/n) ")
 if searchsploit == "y":
